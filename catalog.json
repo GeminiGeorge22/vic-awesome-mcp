@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "updated": "2026-11-13",
+  "servers": [
+    {
+      "slug": "playwright",
+      "name": "Playwright MCP",
+      "maintainer": "Microsoft (official)",
+      "repo": "https://github.com/microsoft/playwright-mcp",
+      "license": "Apache-2.0",
+      "stars": 39571,
+      "category": "browser-automation",
+      "vic_lines": [
+        "foreign-trade",
+        "logistics",
+        "one-person-company",
+        "social-media"
+      ],
+      "auth": "none",
+      "stdio": {
+        "command": "npx",
+        "args": [
+          "@playwright/mcp@latest",
+          "--isolated"
+        ]
+      },
+      "requires": "Node.js 18+",
+      "tools_count": 25,
+      "verified": {
+        "date": "2026-11-13",
+        "method": "Launched with npx over stdio, tools/list returned 25 tools"
+      },
+      "score": 92,
+      "added": "2026-11-13"
+    },
+    {
+      "slug": "github",
+      "name": "GitHub MCP Server",
+      "maintainer": "GitHub (official)",
+      "repo": "https://github.com/github/github-mcp-server",
+      "license": "MIT",
+      "stars": 34419,
+      "category": "developer-tools",
+      "vic_lines": [
+        "one-person-company"
+      ],
+      "auth": "oauth_or_token",
+      "http": {
+        "url": "https://api.githubcopilot.com/mcp/readonly",
+        "bearer_env": "GITHUB_PAT",
+        "oauth_clients": [
+          "vscode"
+        ],
+        "url_full": "https://api.githubcopilot.com/mcp/"
+      },
+      "requires": "A GitHub account. OAuth in VS Code; a fine-grained Personal Access Token elsewhere.",
+      "tools_count": null,
+      "verified": {
+        "date": "2026-11-13",
+        "method": "Official README checked: remote URL and PAT header; repo active (pushed 2026-11-13). Not launched: needs your token."
+      },
+      "score": 92,
+      "added": "2026-11-13"
+    },
+    {
+      "slug": "context7",
+      "name": "Context7",
+      "maintainer": "Upstash",
+      "repo": "https://github.com/upstash/context7",
+      "license": "MIT",
+      "stars": 64708,
+      "category": "docs-for-coding",
+      "vic_lines": [
+        "one-person-company"
+      ],
+      "auth": "optional_api_key",
+      "http": {
+        "url": "https://mcp.context7.com/mcp",
+        "bearer_env": "CONTEXT7_API_KEY",
+        "bearer_optional": true
+      },
+      "requires": "Nothing to start. A free API key from context7.com/dashboard raises rate limits.",
+      "tools_count": 2,
+      "verified": {
+        "date": "2026-11-13",
+        "method": "Connected to the remote URL without a key; tools/list returned 2 tools; resolve-library-id returned results"
+      },
+      "score": 89,
+      "added": "2026-11-13"
+    }
+  ]
+}
