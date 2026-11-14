@@ -110,7 +110,7 @@ async def smoke(cat: dict) -> None:
         if s["auth"] not in {"none", "optional_api_key"}:
             print(f"   {s['slug']}: skipped smoke (needs a personal credential)")
             continue
-        target = StdioServerParameters(command=s["stdio"]["command"], args=["-y", *s["stdio"]["args"]]) \
+        target = StdioServerParameters(command=s["stdio"]["command"], args=(["-y"] if s["stdio"]["command"] == "npx" else []) + list(s["stdio"]["args"])) \
             if "stdio" in s else s["http"]["url"]
         try:
             async with Client(target, read_timeout_seconds=90) as c:

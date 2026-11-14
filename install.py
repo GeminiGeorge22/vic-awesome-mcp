@@ -119,7 +119,10 @@ def claude_code_cmd(s: dict, with_key: bool = False, full: bool = False) -> str:
     if "stdio" in s:
         return f"claude mcp add {s['slug']} -- {s['stdio']['command']} " + " ".join(s['stdio']['args'])
     h = s["http"]
-    cmd = f"claude mcp add --transport http {s['slug']} {server_url(s, full)}"
+    url = server_url(s, full)
+    if any(ch in url for ch in "?&*"):
+        url = f'"{url}"'  # keep zsh/bash from globbing the query string
+    cmd = f"claude mcp add --transport http {s['slug']} {url}"
     env = bearer_env(s, "claude-code", with_key)
     if env:
         cmd += f' --header "Authorization: Bearer ${env}"'
@@ -233,7 +236,7 @@ def main() -> None:
     elif h.get("bearer_optional"):
         print("\nNo key needed. Add --with-key to send " + h["bearer_env"] + " for higher rate limits.")
     elif a.client in h.get("oauth_clients", []):
-        print("\nYour client will open a GitHub-style sign-in (OAuth) on first use.")
+        print("\nNo key needed here: your client opens the service's sign-in page (OAuth) on first use.")
     print(f"Requires: {s['requires']}\nDocs: {s['repo']}\nRestart your client to load the server.")
 
 

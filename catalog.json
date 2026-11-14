@@ -1,7 +1,100 @@
 {
   "version": 1,
-  "updated": "2026-11-13",
+  "updated": "2026-11-14",
   "servers": [
+    {
+      "slug": "time",
+      "name": "Time MCP Server",
+      "maintainer": "Model Context Protocol (official reference server)",
+      "repo": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+      "license": "MIT / Apache-2.0",
+      "stars": 91976,
+      "category": "time-and-timezones",
+      "vic_lines": [
+        "foreign-trade",
+        "logistics",
+        "one-person-company",
+        "social-media"
+      ],
+      "auth": "none",
+      "stdio": {
+        "command": "uvx",
+        "args": [
+          "mcp-server-time"
+        ]
+      },
+      "requires": "uv (provides uvx): https://docs.astral.sh/uv/",
+      "tools_count": 3,
+      "verified": {
+        "date": "2026-11-14",
+        "method": "Launched with uvx over stdio, tools/list returned 3 tools; convert_time Asia/Shanghai 21:00 -> America/Los_Angeles returned -16.0h"
+      },
+      "score": 90,
+      "added": "2026-11-14"
+    },
+    {
+      "slug": "exa",
+      "name": "Exa MCP Server",
+      "maintainer": "Exa (official)",
+      "repo": "https://github.com/exa-labs/exa-mcp-server",
+      "license": "MIT",
+      "stars": 5231,
+      "category": "web-search",
+      "vic_lines": [
+        "foreign-trade",
+        "logistics",
+        "one-person-company",
+        "social-media"
+      ],
+      "auth": "optional_api_key",
+      "http": {
+        "url": "https://mcp.exa.ai/mcp",
+        "bearer_env": "EXA_API_KEY",
+        "bearer_optional": true
+      },
+      "requires": "Nothing to start (anonymous, rate-limited). A key from dashboard.exa.ai/api-keys raises limits.",
+      "tools_count": 2,
+      "verified": {
+        "date": "2026-11-14",
+        "method": "Connected to the remote URL without a key; tools/list returned 2 tools; web_search_exa returned real results"
+      },
+      "score": 89,
+      "added": "2026-11-14"
+    },
+    {
+      "slug": "apify",
+      "name": "Apify MCP Server",
+      "maintainer": "Apify (official)",
+      "repo": "https://github.com/apify/apify-mcp-server",
+      "license": "MIT",
+      "stars": 16162,
+      "category": "web-scraping",
+      "vic_lines": [
+        "foreign-trade",
+        "logistics",
+        "one-person-company",
+        "social-media"
+      ],
+      "auth": "oauth_or_token",
+      "http": {
+        "url": "https://mcp.apify.com?telemetry-enabled=false",
+        "bearer_env": "APIFY_TOKEN",
+        "oauth_clients": [
+          "claude-desktop",
+          "claude-code",
+          "cursor",
+          "vscode"
+        ]
+      },
+      "requires": "A free Apify account. OAuth sign-in in most clients; an Apify API token for Codex. Actor runs use Apify credits.",
+      "tools_count": null,
+      "verified": {
+        "date": "2026-11-14",
+        "method": "Official README checked. Without a token, the remote URL with tools=search-actors,fetch-actor-details connected (2 tools) and search-actors returned results; full toolset needs your account"
+      },
+      "score": 89,
+      "added": "2026-11-14"
+    },
     {
       "slug": "playwright",
       "name": "Playwright MCP",

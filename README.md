@@ -22,6 +22,9 @@ curl -fsSL https://raw.githubusercontent.com/voidgazer009/vic-awesome-mcp/main/i
 
 | MCP | 一句话 | 适合哪条线 | 鉴权 | Vic 评分 | 收录 |
 |---|---|---|---|---|---|
+| [Time MCP Server](servers/time.md) | 让 AI 准确知道现在几点、跨时区换算 | 外贸 · 物流 · 一人公司 · 自媒体 | 免密钥 | 90 | 2026-11-14 |
+| [Exa MCP Server](servers/exa.md) | AI 专用搜索：找客户、找选题、查行业新闻 | 外贸 · 物流 · 一人公司 · 自媒体 | 免密钥（Key 可选） | 89 | 2026-11-14 |
+| [Apify MCP Server](servers/apify.md) | 调用几千个现成爬虫：地图、社媒、电商数据 | 外贸 · 物流 · 一人公司 · 自媒体 | OAuth / Token | 89 | 2026-11-14 |
 | [Playwright MCP](servers/playwright.md) | 让 AI 打开网页、点击、填表、抓数据 | 外贸 · 物流 · 一人公司 · 自媒体 | 免密钥 | 92 | 2026-11-13 |
 | [GitHub MCP Server](servers/github.md) | 让 AI 管理 GitHub 仓库、Issue、PR（默认只读） | 一人公司 | OAuth / Token | 92 | 2026-11-13 |
 | [Context7](servers/context7.md) | 写代码前先查最新官方文档 | 一人公司 | 免密钥（Key 可选） | 89 | 2026-11-13 |
