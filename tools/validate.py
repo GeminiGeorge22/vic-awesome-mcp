@@ -10,6 +10,7 @@ from __future__ import annotations
 import asyncio
 import datetime as dt
 import json
+import os
 import re
 import subprocess
 import sys
@@ -110,7 +111,11 @@ async def smoke(cat: dict) -> None:
         if s["auth"] not in {"none", "optional_api_key"}:
             print(f"   {s['slug']}: skipped smoke (needs a personal credential)")
             continue
-        target = StdioServerParameters(command=s["stdio"]["command"], args=(["-y"] if s["stdio"]["command"] == "npx" else []) + list(s["stdio"]["args"])) \
+        import tempfile
+        tmp = tempfile.mkdtemp()
+        sargs = [tmp if a == "{dir}" else a for a in s["stdio"]["args"]] if "stdio" in s else []
+        senv = {k: v.replace("{home}", tmp) for k, v in (s["stdio"].get("env_values") or {}).items()} if "stdio" in s else {}
+        target = StdioServerParameters(command=s["stdio"]["command"], args=(["-y"] if s["stdio"]["command"] == "npx" and "-y" not in sargs else []) + sargs, env={**os.environ, **senv}) \
             if "stdio" in s else s["http"]["url"]
         try:
             async with Client(target, read_timeout_seconds=90) as c:

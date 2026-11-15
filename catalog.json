@@ -1,7 +1,111 @@
 {
   "version": 1,
-  "updated": "2026-11-14",
+  "updated": "2026-11-15",
   "servers": [
+    {
+      "slug": "filesystem",
+      "name": "Filesystem MCP Server",
+      "maintainer": "Model Context Protocol (official reference server)",
+      "repo": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+      "license": "MIT / Apache-2.0",
+      "stars": 92002,
+      "category": "local-files",
+      "vic_lines": [
+        "foreign-trade",
+        "logistics",
+        "one-person-company",
+        "social-media"
+      ],
+      "auth": "none",
+      "stdio": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem@2.3.0",
+          "--read-only",
+          "{dir}"
+        ],
+        "args_full": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem@2.3.0",
+          "{dir}"
+        ]
+      },
+      "requires": "Node.js 18+ (npx). Needs --dir /your/folder: the AI can only touch that folder. Read-only by default.",
+      "tools_count": 10,
+      "verified": {
+        "date": "2026-11-15",
+        "method": "npx @modelcontextprotocol/server-filesystem@2.3.0 --read-only over stdio: tools/list returned 10 tools (no write tools); read_text_file read a test file. Without --read-only it lists 14 tools"
+      },
+      "score": 90,
+      "added": "2026-11-15"
+    },
+    {
+      "slug": "memory",
+      "name": "Memory MCP Server",
+      "maintainer": "Model Context Protocol (official reference server)",
+      "repo": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+      "license": "MIT / Apache-2.0",
+      "stars": 92002,
+      "category": "persistent-memory",
+      "vic_lines": [
+        "foreign-trade",
+        "logistics",
+        "one-person-company",
+        "social-media"
+      ],
+      "auth": "none",
+      "stdio": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-memory@2.1.1"
+        ],
+        "env_values": {
+          "MEMORY_FILE_PATH": "{home}/vic-memory.jsonl"
+        }
+      },
+      "requires": "Node.js 18+ (npx). Stores a local file ~/vic-memory.jsonl (the installer sets MEMORY_FILE_PATH so npx updates cannot delete it).",
+      "tools_count": 9,
+      "verified": {
+        "date": "2026-11-15",
+        "method": "npx @modelcontextprotocol/server-memory@2.1.1 over stdio: tools/list returned 9 tools; create_entities then read_graph returned the saved entity"
+      },
+      "score": 88,
+      "added": "2026-11-15"
+    },
+    {
+      "slug": "stripe",
+      "name": "Stripe MCP Server",
+      "maintainer": "Stripe (official)",
+      "repo": "https://github.com/stripe/ai",
+      "license": "MIT",
+      "stars": 2063,
+      "category": "payments",
+      "vic_lines": [
+        "foreign-trade",
+        "one-person-company"
+      ],
+      "auth": "oauth_or_token",
+      "http": {
+        "url": "https://mcp.stripe.com",
+        "bearer_env": "STRIPE_AGENT_API_KEY",
+        "oauth_clients": [
+          "claude-desktop",
+          "claude-code",
+          "cursor",
+          "vscode"
+        ]
+      },
+      "requires": "A Stripe account. OAuth sign-in in most clients (choose sandbox first); Codex needs an agent API key in STRIPE_AGENT_API_KEY.",
+      "tools_count": null,
+      "verified": {
+        "date": "2026-11-15",
+        "method": "Official docs page docs.stripe.com/mcp checked word for word; not connected (needs your own Stripe account)"
+      },
+      "score": 86,
+      "added": "2026-11-15"
+    },
     {
       "slug": "time",
       "name": "Time MCP Server",

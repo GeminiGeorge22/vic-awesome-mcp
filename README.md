@@ -22,6 +22,9 @@ curl -fsSL https://raw.githubusercontent.com/voidgazer009/vic-awesome-mcp/main/i
 
 | MCP | 一句话 | 适合哪条线 | 鉴权 | Vic 评分 | 收录 |
 |---|---|---|---|---|---|
+| [Filesystem MCP Server](servers/filesystem.md) | 让 AI 读你指定文件夹里的单据和素材（默认只读） | 外贸 · 物流 · 一人公司 · 自媒体 | 免密钥 | 90 | 2026-11-15 |
+| [Memory MCP Server](servers/memory.md) | 给 AI 一本跨对话的记事本，记住客户和习惯 | 外贸 · 物流 · 一人公司 · 自媒体 | 免密钥 | 88 | 2026-11-15 |
+| [Stripe MCP Server](servers/stripe.md) | 查收款、客户、发票、余额（关键动作需你批准） | 外贸 · 一人公司 | OAuth / Token | 86 | 2026-11-15 |
 | [Time MCP Server](servers/time.md) | 让 AI 准确知道现在几点、跨时区换算 | 外贸 · 物流 · 一人公司 · 自媒体 | 免密钥 | 90 | 2026-11-14 |
 | [Exa MCP Server](servers/exa.md) | AI 专用搜索：找客户、找选题、查行业新闻 | 外贸 · 物流 · 一人公司 · 自媒体 | 免密钥（Key 可选） | 89 | 2026-11-14 |
 | [Apify MCP Server](servers/apify.md) | 调用几千个现成爬虫：地图、社媒、电商数据 | 外贸 · 物流 · 一人公司 · 自媒体 | OAuth / Token | 89 | 2026-11-14 |

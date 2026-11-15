@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-15
+
+- 新增 Filesystem MCP Server（90）：协议官方，让 AI 读你指定文件夹里的单据，默认只读。
+- 新增 Memory MCP Server（88）：协议官方，本地知识图谱，让 AI 跨对话记住客户和习惯。
+- 新增 Stripe MCP Server（86）：Stripe 官方托管，查收款和账务，关键动作需人工批准；未连接实测。
+- install.py：新增 `--dir`（指定文件夹）、本地服务器的固定环境变量、`--full-access` 对本地服务器生效；validate.py 的 smoke 测试同步支持。
+
 ## 2026-11-14
 
 - 新增 Time MCP Server（90）：协议官方参考实现，本地跨时区换算，约客户、算截关时间不再出错。
