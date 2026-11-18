@@ -1,7 +1,39 @@
 {
   "version": 1,
-  "updated": "2026-11-15",
+  "updated": "2026-11-18",
   "servers": [
+    {
+      "slug": "mapbox",
+      "name": "Mapbox MCP Server",
+      "maintainer": "Mapbox (official)",
+      "repo": "https://github.com/mapbox/mcp-server",
+      "license": "MIT",
+      "stars": 372,
+      "category": "maps-geo",
+      "vic_lines": [
+        "logistics",
+        "foreign-trade"
+      ],
+      "auth": "oauth_or_token",
+      "http": {
+        "url": "https://mcp.mapbox.com/mcp",
+        "bearer_env": "MAPBOX_ACCESS_TOKEN",
+        "oauth_clients": [
+          "claude-desktop",
+          "claude-code",
+          "cursor",
+          "vscode"
+        ]
+      },
+      "requires": "A free Mapbox account and access token (MAPBOX_ACCESS_TOKEN). Hosted endpoint, no install; local npx @mapbox/mcp-server also works.",
+      "tools_count": 32,
+      "verified": {
+        "date": "2026-11-18",
+        "method": "npx @mapbox/mcp-server over stdio with a dummy token: tools/list returned 32 tools; offline distance_tool returned 3.441 km. Hosted URL and Bearer header checked word for word in the official README and hosted guide; network tools (directions, geocoding) not called (need your token)"
+      },
+      "score": 86,
+      "added": "2026-11-18"
+    },
     {
       "slug": "filesystem",
       "name": "Filesystem MCP Server",
